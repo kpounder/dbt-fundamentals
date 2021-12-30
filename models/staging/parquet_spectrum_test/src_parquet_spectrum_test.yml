@@ -1,0 +1,8 @@
+version: 2
+
+sources: 
+  - name: parquet_test
+    database: dev
+    schema: parquet_test
+    tables:
+      - name: kylep_parquet_data

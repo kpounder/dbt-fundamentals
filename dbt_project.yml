@@ -13,7 +13,7 @@ profile: 'default'
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
-analysis-paths: ["analyses"]
+analysis-paths: ["analysis"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
@@ -34,7 +34,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   jaffle_shop:
     marts:
-      core:
-        +materialized: table
+      +materialized: table
+      core: 
+        +schema: core
+      one_department:
+        +schema: one_department
+      some_other_department:
+        +schema: some_other_department
     staging:
       +materialized: view 
+      +schema: staging
